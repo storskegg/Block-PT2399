@@ -2,6 +2,20 @@
 
 A simple delay/echo design block based on the venerable PTC PT2399.
 
+## Features
+
+- Star Grounds: This board features a 2-star ground configuration
+    1. All ground connections from and relating directly to the PT2399, and its
+       dedicated power supply (`7805`) have their own trace to the negative lead
+       on the `7805`'s `100uF` bypass capacitor.
+    2. The above ground star, and all other ground connections (e.g. JFET
+       impedance buffer) have their own traces back to `Sig_gnd`.
+- Onboard regulation: The PT2399 is a particularly noisy beast, and must have
+  its own power rail. As such, this board has its own 7805 regulator, and bypass
+  capacitor (`100uF` located as close to the PT2399 as possible, while
+  facilitating the star ground to the chip's supporting circuitry, and mfr's
+  fabrication constraints.)
+
 ## Background
 
 I've been working on a blues harp preamp for a buddy, and have been working on
